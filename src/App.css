@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+@media screen and (max-width: 768px) {
+  .navbar-nav {
+    margin-left: auto;
+  }
+  
+  .dropdown-menu {
+    position: static !important;
+    float: none !important;
+  }
+  
+  .dropdown-menu > li {
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+  
+  .dropdown-menu > li > a {
+    display: block !important;
+    text-align: center;
+  }
+}

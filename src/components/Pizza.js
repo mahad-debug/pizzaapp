@@ -2,7 +2,15 @@ import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../actions/cartActions";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 export default function Pizza({ pizza }) {
+   
+  AOS.init({
+    
+  })
+
   const [quantity, setquantity] = useState(1);
   const [varients, setvarients] = useState("small");
   const [show, setShow] = useState(false);
@@ -14,7 +22,9 @@ export default function Pizza({ pizza }) {
     dispatch(addToCart(pizza, quantity, varients));
   }
   return (
-    <div className='"navbar navbar-expand-lg shadow-lg p-3 mb-5 bg-white rounded"'>
+     <div
+     data-aos='zoom-in'
+     className='"navbar navbar-expand-lg shadow-lg p-3 mb-5 bg-white rounded"'>
       <div onClick={handleShow}>
         <h1>{pizza.name}</h1>
         <img
@@ -50,7 +60,7 @@ return <option value={i + 1}>{i + 1}</option>;: creates a new <option> element w
 
           <select
             className="form-control"
-            value="quantity"
+            value={quantity}
             onChange={(e) => {
               setquantity(e.target.value);
             }}
